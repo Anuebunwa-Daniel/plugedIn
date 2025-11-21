@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pluggedin — Secure Service Hiring</title>
+  <link rel="shortcut icon" href="/img/favicon.jpg" type="image/x-icon">
+
+  <!-- Fonts & Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #2168F5;
+      --green: #3BAF4A;
+      --bg-dark: #0f2436;
+      --panel: #112430;
+      --text-light: rgba(230, 233, 239, 0.85);
+      --text-muted: rgba(230, 233, 239, 0.65);
+      --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .container-lg {
+      max-width: 1140px;
+    }
+
+    /* NAVBAR */
+    nav.navbar {
+      padding: 1rem 0;
+    }
+
+    .brand-logo {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .nav-link {
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    .btn-wait, .btn-wait:focus {
+      background-color: var(--blue);
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(33, 104, 245, 0.18);
+    }
+
+    .btn-outline-soft {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--text-light);
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 4rem;
+      position: relative;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (max-width: 992px) {
+      .hero-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+    }
+
+    .hero-col {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-title {
+      color: #ffffff;
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero-lead {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 45rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .art-card {
+      background-color: var(--panel);
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .art-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-head {
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .card-dark {
+      background-color: var(--panel);
+      border: none;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      color: var(--blue);
+      width: 56px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(33, 104, 245, 0.1);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-title {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      min-height: 160px;
+    }
+
+    .flow-number {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--blue);
+      width: 38px;
+      text-align: center;
+    }
+
+    .founder-img {
+      width: 110px;
+      height: 110px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .founder-card {
+      background: var(--panel);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .testi-card {
+      background: var(--panel);
+      padding: 1.25rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .testi-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    footer {
+      padding: 3rem 0;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s cubic-bezier(.2, .9, .2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container container-lg d-flex align-items-center">
+      <a class="me-4" href="#"><img src="/img/logo.jpg" alt="Pluggedin" class="brand-logo"></a>
+
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="/">home page</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page2">page 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page3">page 3</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page4">page4</a></li>
+          <li class="nav-item ms-3"><a class="nav-link btn btn-outline-soft" href="https://forms.gle/sample">Join Waitlist</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container container-lg">
+      <div class="hero-inner">
+        <div class="hero-col reveal" data-reveal>
+          <h1 class="hero-title">Your City’s Best Plug — Connecting You Better</h1>
+          <p class="hero-lead">Pluggedin is a secure platform that connects clients to verified skilled professionals — with 0% risk of scam, guaranteed.</p>
+
+          <div class="hero-ctas">
+            <a class="btn-wait" href="https://forms.gle/sample">Join the Waitlist</a>
+            <a class="btn-outline-soft" href="#features">See Features</a>
+          </div>
+
+          <p class="muted small mt-3">Trusted locally • Secure escrow • Before & after verification</p>
+        </div>
+
+        <div class="hero-col hero-art reveal" data-reveal>
+          <div class="art-card">
+            <img src="/img/people.webp" alt="secure hiring" class="art-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container container-lg">
+      <div class="text-center reveal" data-reveal>
+        <h2 class="section-head">Solving the Biggest Problem in the Service-Hiring Industry</h2>
+        <p class="muted">Existing platforms expose clients to unverified workers, high risk of scam, poor work quality, and no financial protection. Pluggedin fixes all that with verification, escrow, and visual proof.</p>
+      </div>
+      <div class="row align-items-center mt-4">
+        <div class="col-md-6 reveal" data-reveal>
+          <img src="/img/connecting.jpg" alt="Problem illustration" style="width:100%; border-radius:12px; box-shadow: var(--shadow-soft);">
+        </div>
+        <div class="col-md-6 reveal" data-reveal>
+          <p class="muted">On most platforms you can't verify the worker, there's no visual proof of jobs done and funds are transferred up front — creating a heavy risk for clients. Pluggedin changes that model.</p>
+          <ul class="muted">
+            <li>Verified profiles and ID checks</li>
+            <li>Escrow protection for payments</li>
+            <li>Before & after photo verification</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION (3-STEP) -->
+  <section id="solution">
+    <div class="container container-lg">
+      <div class="row g-4">
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark">
+            <div class="flow-step">
+              <div class="flow-number">1</div>
+              <div>
+                <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
+                <h5 class="feature-title">Escrow-Based Payment System</h5>
+                <p class="feature-desc">When a user hires a professional, Pluggedin securely holds the payment. Funds are only released after job completion + 24-hour satisfaction confirmation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark">
+            <div class="flow-step">
+              <div class="flow-number">2</div>
+              <div>
+                <div class="feature-icon"><i class="bi bi-camera-reels"></i></div>
+                <h5 class="feature-title">Before & After Photo Verification</h5>
+                <p class="feature-desc">Professionals must upload before & after photos. This protects clients and resolves disputes fairly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark">
+            <div class="flow-step">
+              <div class="flow-number">3</div>
+              <div>
+                <div class="feature-icon"><i class="bi bi-cash-stack"></i></div>
+                <h5 class="feature-title">Automatic Payout After 24 Hours</h5>
+                <p class="feature-desc">If the client raises no complaint, payment is released to the professional automatically — reducing scam risk to 0%.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features">
+    <div class="container container-lg">
+      <div class="text-center reveal" data-reveal>
+        <h3 class="section-head">Platform Features</h3>
+        <p class="muted">Built for trust, transparency & speed.</p>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark d-flex gap-3 align-items-start">
+            <div class="feature-icon"><i class="bi bi-lock"></i></div>
+            <div>
+              <h5 class="feature-title">Secure Escrow Payment</h5>
+              <p class="feature-desc">Payments are protected until job completion.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark d-flex gap-3 align-items-start">
+            <div class="feature-icon"><i class="bi bi-camera"></i></div>
+            <div>
+              <h5 class="feature-title">Before/After Job Verification</h5>
+              <p class="feature-desc">Proof of work uploaded for fairness.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-dark d-flex gap-3 align-items-start">
+            <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
+            <div>
+              <h5 class="feature-title">Verified Professionals</h5>
+              <p class="feature-desc">Only quality providers pass verification.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION / GOAL -->
+  <section id="mission">
+    <div class="container container-lg">
+      <div class="row align-items-center">
+        <div class="col-md-7 reveal" data-reveal>
+          <h3 class="section-head">Mission • Vision • Goal</h3>
+          <p class="muted"><strong>Mission:</strong> To create a safe, transparent, and reliable platform where clients can confidently hire skilled professionals without fear of scam.</p>
+          <p class="muted"><strong>Vision:</strong> To become the world’s leading platform for secure service hiring across every major city.</p>
+          <p class="muted"><strong>Goal:</strong> To eliminate fear, connect users to the best talent, and build a trusted ecosystem powered by user safety.</p>
+        </div>
+        <div class="col-md-5 reveal" data-reveal>
+          <div class="card-dark text-center">
+            <h5>Join early — be heard</h5>
+            <p class="muted small">Join the waitlist to help shape features and earn early perks.</p>
+            <a class="btn-wait mt-2" href="https://forms.gle/sample">Join Waitlist</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section id="founders">
+    <div class="container container-lg">
+      <div class="text-center reveal" data-reveal>
+        <h3 class="section-head">Meet The Founders</h3>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="founder-card">
+            <img src="/img/img1.jpg" alt="Founder One" class="founder-img mb-3">
+            <h5>Adaeze N.</h5>
+            <p class="muted small">CEO — Product & Strategy</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="founder-card">
+            <img src="/img/img1.jpg" alt="Founder Two" class="founder-img mb-3">
+            <h5>Chinedu O.</h5>
+            <p class="muted small">CTO — Engineering</p>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="founder-card">
+            <img src="/img/img1.jpg" alt="Founder Three" class="founder-img mb-3">
+            <h5>Kemi A.</h5>
+            <p class="muted small">COO — Operations & Growth</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container container-lg">
+      <div class="text-center reveal" data-reveal>
+        <h3 class="section-head">What Our Customers Say</h3>
+        <p class="muted">Real feedback from real users</p>
+      </div>
+      <div class="row g-4 mt-4">
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="testi-card d-flex">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Photo" class="testi-photo">
+            <div>
+              <p class="mb-1">“Pluggedin gave me confidence to hire a contractor — payment was secure and the work was verified.”</p>
+              <small class="text-muted">— Michael A.</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="testi-card d-flex">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User Photo" class="testi-photo">
+            <div>
+              <p class="mb-1">“Fast dispute resolution and clear proof of work. Finally a platform I trust.”</p>
+              <small class="text-muted">— Sarah K.</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="testi-card d-flex">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="User Photo" class="testi-photo">
+            <div>
+              <p class="mb-1">“My first booking was smooth — before/after photos made the payout process easy and fair.”</p>
+              <small class="text-muted">— Daniel O.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container container-lg text-center">
+      <img src="/img/favicon.jpg" alt="Pluggedin" style="height:60px; object-fit:contain;">
+      <p class="mt-3 small-muted">info@pluggedin.com &nbsp; • &nbsp; © 2025 Pluggedin. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function revealOnScroll() {
+      const els = document.querySelectorAll('[data-reveal]');
+      const h = window.innerHeight;
+      els.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < h - 80) el.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', () => { revealOnScroll(); setTimeout(revealOnScroll, 600); });
+  </script>
+</body>
+
+</html>

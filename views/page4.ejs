@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pluggedin — Secure Service Hiring (Professional)</title>
+  <title>Pluggedin — Secure Service Hiring Platform</title>
   <link rel="shortcut icon" href="/img/favicon.jpg" type="image/x-icon">
 
   <!-- Fonts & Bootstrap -->
@@ -16,28 +16,29 @@
     :root {
       --blue: #2168F5;
       --green: #3BAF4A;
-      --bg: #0f2436;
-      /* slightly lighter than original dark */
-      --card: #112430;
-      --muted: rgba(230, 233, 239, 0.78);
-      --glass: rgba(255, 255, 255, 0.03);
-      --soft-shadow: 0 8px 30px rgba(2, 6, 23, 0.45);
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-muted: #6c757d;
+      --border-light: rgba(0, 0, 0, 0.08);
+      --soft-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      --hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html,
     body {
-      height: 100%
+      height: 100%;
     }
 
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg, #08202a 0%, var(--bg) 100%);
-      color: var(--muted);
+      background-color: white;
+      color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.45;
@@ -45,12 +46,14 @@
 
     /* wrapper */
     .container-lg {
-      max-width: 1140px
+      max-width: 1140px;
     }
 
     /* NAV */
     nav.navbar {
       padding: 18px 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
 
     .brand-logo {
@@ -61,12 +64,13 @@
     }
 
     .nav-link {
-      color: var(--muted);
-      font-weight: 600;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: color 0.2s ease;
     }
 
     .nav-link:hover {
-      color: #fff;
+      color: var(--blue);
     }
 
     .btn-wait {
@@ -76,22 +80,36 @@
       padding: 10px 22px;
       border-radius: 999px;
       font-weight: 700;
-      box-shadow: 0 8px 30px rgba(33, 104, 245, 0.12);
+      box-shadow: 0 4px 12px rgba(33, 104, 245, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-wait:hover {
+      background: #1a5bd8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(33, 104, 245, 0.3);
     }
 
     .btn-outline-soft {
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: var(--muted);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
       background: transparent;
       padding: 8px 16px;
       border-radius: 999px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-soft:hover {
+      border-color: var(--blue);
+      color: var(--blue);
     }
 
     /* HERO */
     .hero {
-      padding: 84px 0 56px;
+      padding: 120px 0 80px;
       position: relative;
       overflow: visible;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
 
     .hero-inner {
@@ -103,7 +121,7 @@
     @media (max-width:991px) {
       .hero-inner {
         flex-direction: column-reverse;
-        text-align: center
+        text-align: center;
       }
     }
 
@@ -113,7 +131,7 @@
     }
 
     .hero-title {
-      color: #fff;
+      color: var(--text-primary);
       font-size: 2.6rem;
       line-height: 1.03;
       font-weight: 800;
@@ -121,7 +139,7 @@
     }
 
     .hero-lead {
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--text-muted);
       font-size: 1.05rem;
       margin-bottom: 18px;
       max-width: 46rem;
@@ -143,11 +161,11 @@
     }
 
     .art-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      background: white;
       padding: 22px;
       border-radius: 16px;
       box-shadow: var(--soft-shadow);
-      border: 1px solid rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-light);
       max-width: 520px;
       width: 100%;
     }
@@ -172,7 +190,7 @@
       width: calc(33.333% - 8px);
       border-radius: 10px;
       object-fit: cover;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
     @media (max-width:768px) {
@@ -183,26 +201,33 @@
 
     /* SECTION STYLES */
     section {
-      padding: 56px 0;
+      padding: 80px 0;
     }
 
     .section-head {
-      color: #fff;
+      color: var(--text-primary);
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 12px;
     }
 
     .muted {
-      color: rgba(255, 255, 255, 0.78);
+      color: var(--text-muted);
     }
 
-    .card-dark {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.03);
+    .card-light {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 20px;
       box-shadow: var(--soft-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .card-light:hover {
+      box-shadow: var(--hover-shadow);
+      transform: translateY(-5px);
     }
 
     .feature-icon {
@@ -214,17 +239,17 @@
       align-items: center;
       justify-content: center;
       border-radius: 12px;
-      background: linear-gradient(180deg, rgba(33, 104, 245, 0.06), rgba(33, 104, 245, 0.02));
-      margin-bottom: 12px
+      background: rgba(33, 104, 245, 0.08);
+      margin-bottom: 12px;
     }
 
     .feature-title {
-      color: #fff;
+      color: var(--text-primary);
       font-weight: 700;
     }
 
     .feature-desc {
-      color: rgba(255, 255, 255, 0.75);
+      color: var(--text-muted);
     }
 
     /* 3-step flow */
@@ -242,7 +267,7 @@
       margin-top: 6px;
       width: 34px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(33, 104, 245, 0.08);
       border-radius: 8px;
       padding: 8px;
     }
@@ -253,24 +278,38 @@
       height: 110px;
       border-radius: 12px;
       object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
     }
 
     .founder-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      background: white;
       border-radius: 12px;
       padding: 14px;
       text-align: center;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      box-shadow: var(--soft-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .founder-card:hover {
+      box-shadow: var(--hover-shadow);
+      transform: translateY(-5px);
     }
 
     /* Testimonials */
     .testi-card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      background: white;
       padding: 18px;
       border-radius: 12px;
-      color: var(--muted);
-      border: 1px solid rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--soft-shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .testi-card:hover {
+      box-shadow: var(--hover-shadow);
     }
 
     .testi-photo {
@@ -283,21 +322,22 @@
     /* Footer */
     footer {
       padding: 36px 0;
-      color: rgba(255, 255, 255, 0.7);
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      color: var(--text-muted);
+      background-color: var(--light-bg);
+      border-top: 1px solid var(--border-light);
     }
 
     /* Utility */
     .accent-green {
-      color: var(--green)
+      color: var(--green);
     }
 
     .accent-blue {
-      color: var(--blue)
+      color: var(--blue);
     }
 
     .small-muted {
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
@@ -306,16 +346,20 @@
       padding: 6px 12px;
     }
 
+    .bg-light-section {
+      background-color: var(--light-bg);
+    }
+
     /* reveal animation */
     .reveal {
       opacity: 0;
       transform: translateY(10px);
-      transition: all .6s cubic-bezier(.2, .9, .2, 1)
+      transition: all .6s cubic-bezier(.2, .9, .2, 1);
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: none
+      transform: none;
     }
 
     /* responsive tweaks */
@@ -334,10 +378,9 @@
 <body>
 
   <!-- NAV -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container container-lg d-flex align-items-center">
       <a class="d-flex align-items-center me-3" href="#">
-        <!-- swap for your pluggein logo -->
         <img src="/img/logo.jpg" alt="Pluggedin Logo" class="brand-logo" style="height:64px; width: 160px;">
       </a>
 
@@ -348,12 +391,12 @@
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="/">home page</a></li>
-          <li class="nav-item"><a class="nav-link" href="/page2">page 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="page3">page 3</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page2">page2</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page3">page3</a></li>
           <li class="nav-item"><a class="nav-link" href="/page4">page4</a></li>
-          <li class="nav-item ms-3"><a class="nav-link btn btn-outline-soft" href="https://forms.gle/sample">Join
-              Waitlist</a></li>
+          <li class="nav-item"><a class="nav-link" href="#founders">Founders</a></li>
+          <li class="nav-item ms-3"><a class="btn-wait" href="https://forms.gle/sample">Join Waitlist</a></li>
         </ul>
       </div>
     </div>
@@ -365,7 +408,7 @@
       <div class="hero-inner">
 
         <div class="hero-col reveal" data-reveal>
-          <h1 class="hero-title">Your City’s Best Plug — Connecting You Better</h1>
+          <h1 class="hero-title">Your City's Best Plug — Connecting You Better</h1>
           <p class="hero-lead">Pluggedin is a secure platform that connects clients to verified skilled professionals —
             with 0% risk of scam, guaranteed.</p>
 
@@ -379,8 +422,7 @@
         </div>
 
         <div class="hero-art reveal" data-reveal>
-          <div class="art">
-            <!-- hero illustration / image — replace with your curated artwork -->
+          <div class="art-card">
             <img src="/img/people.webp" alt="secure service hiring" class="art-img">
           </div>
         </div>
@@ -390,28 +432,29 @@
   </header>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="bg-light-section">
     <div class="container container-lg">
       <div class="text-center reveal" data-reveal>
-        <h2 class="section-head">Solving the Biggest Problem in the Service-Hiring Industry: Zero Consumer Protection.
-        </h2>
+        <h2 class="section-head">Solving the Biggest Problem in the Service-Hiring Industry: Zero Consumer Protection.</h2>
         <p class="muted" style="font-size: 20px;">Existing platforms expose clients to unverified workers, high risk of
           scam, poor work quality, and no financial protection. Pluggedin fixes all that with verification, escrow, and
           visual proof.</p>
       </div>
 
       <!-- small inline image to the right -->
-      <div class="row align-items-center mt-4">
+      <div class="row align-items-center mt-5">
         <div class="col-md-6 reveal" data-reveal>
-          <img src="img/connecting.jpg" alt="" style="width:100%;" />
+          <img src="img/connecting.jpg" alt="Connecting professionals with clients" class="img-fluid rounded shadow" />
         </div>
         <div class="col-md-6 reveal" data-reveal>
-          <p class="">On most platforms you can't verify the worker, there's no visual proof of jobs done and funds are
+          <p class="mb-4">On most platforms you can't verify the worker, there's no visual proof of jobs done and funds are
             transferred upfront — creating a heavy risk for clients. Pluggedin changes that model.</p>
           <ul class="muted">
             <li>Verified profiles and ID checks</li>
             <li>Escrow protection for payments</li>
             <li>Before & after photo verification</li>
+            <li>24-hour satisfaction guarantee</li>
+            <li>Fair dispute resolution system</li>
           </ul>
         </div>
       </div>
@@ -421,9 +464,14 @@
   <!-- SOLUTION 3-STEP -->
   <section id="solution">
     <div class="container container-lg">
+      <div class="text-center mb-5">
+        <h2 class="section-head">How Pluggedin Eliminates Risk</h2>
+        <p class="muted">Our 3-step process ensures complete protection for both clients and professionals.</p>
+      </div>
+      
       <div class="row g-4 align-items-stretch">
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark h-100">
+          <div class="card-light">
             <div class="flow-step">
               <div class="flow-number">1</div>
               <div>
@@ -431,20 +479,18 @@
                 <h5 class="feature-title">Escrow-Based Payment System</h5>
                 <p class="feature-desc">Pluggedin holds funds securely until the job is confirmed complete by the client
                   (plus 24hr satisfaction window).</p>
-                <div class="mt-3 img-strip">
-                </div>
-                <img
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=59c2f8a3b1d9e6c7a4f2"
-                  alt="timely payment" style="width: 100%;" />
               </div>
-
             </div>
-
+            <div class="mt-3">
+              <img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=59c2f8a3b1d9e6c7a4f2"
+                alt="timely payment" class="img-fluid rounded" />
+            </div>
           </div>
         </div>
 
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark h-100">
+          <div class="card-light">
             <div class="flow-step">
               <div class="flow-number">2</div>
               <div>
@@ -454,15 +500,14 @@
                   proof of work.</p>
               </div>
             </div>
-            <div class="mt-3 img-strip">
-              <img src="img/handyman.jpg" alt="before after" style="width: 100%;" />
-
+            <div class="mt-3">
+              <img src="img/handyman.jpg" alt="before after" class="img-fluid rounded" />
             </div>
           </div>
         </div>
 
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark h-100">
+          <div class="card-light">
             <div class="flow-step">
               <div class="flow-number">3</div>
               <div>
@@ -472,19 +517,17 @@
                   to the pro — fast and fair.</p>
               </div>
             </div>
-            <div class="mt-3 img-strip">
-              <img src="img/payment.avif" alt="automatic payout" style="width: 100%;" />
-
+            <div class="mt-3">
+              <img src="img/payment.avif" alt="automatic payout" class="img-fluid rounded" />
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features">
+  <section id="features" class="bg-light-section">
     <div class="container container-lg">
       <div class="text-center reveal" data-reveal>
         <h3 class="section-head">Platform Features</h3>
@@ -493,7 +536,7 @@
 
       <div class="row g-4 mt-3">
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark d-flex gap-3">
+          <div class="card-light d-flex gap-3">
             <div class="d-flex align-items-start gap-3">
               <div class="feature-icon"><i class="bi bi-lock"></i></div>
               <div>
@@ -505,7 +548,7 @@
         </div>
 
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark d-flex gap-3">
+          <div class="card-light d-flex gap-3">
             <div class="d-flex align-items-start gap-3">
               <div class="feature-icon"><i class="bi bi-bounding-box-circles"></i></div>
               <div>
@@ -517,7 +560,7 @@
         </div>
 
         <div class="col-md-4 reveal" data-reveal>
-          <div class="card-dark d-flex gap-3">
+          <div class="card-light d-flex gap-3">
             <div class="d-flex align-items-start gap-3">
               <div class="feature-icon"><i class="bi bi-person-check"></i></div>
               <div>
@@ -528,6 +571,41 @@
           </div>
         </div>
 
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-light d-flex gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon"><i class="bi bi-calendar-check"></i></div>
+              <div>
+                <h5 class="feature-title">Instant Booking & Scheduling</h5>
+                <p class="feature-desc">Easy appointment booking with real-time availability.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-light d-flex gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon"><i class="bi bi-credit-card"></i></div>
+              <div>
+                <h5 class="feature-title">Safe In-App Payments</h5>
+                <p class="feature-desc">Multiple secure payment options.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal" data-reveal>
+          <div class="card-light d-flex gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <h5 class="feature-title">Dispute Resolution System</h5>
+                <p class="feature-desc">Fair mediation for any issues.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -537,22 +615,28 @@
     <div class="container container-lg">
       <div class="row align-items-center">
         <div class="col-md-7 reveal" data-reveal>
-          <p style="font-size: 40px;" class="section-head">Mission, Vision &amp; Goal</p>
-          <p style="font-size: 30px;" class="muted"><strong>Mission:</strong> <span style="font-size: 20px;">Create a safe, transparent, and reliable platform where clients can
-            confidently hire skilled professionals without fear of scam.</span></p>
-
-          <p style="font-size: 30px;" class="muted"><strong>Vision:</strong>
-             <span style="font-size: 20px;">Become the world’s leading platform for secure service hiring across
-            every major city.</span></p>
-
-          <p style="font-size: 30px;"  class="muted"><strong>Goal:</strong> <span style="font-size: 20px;">Eliminate fear, connect users to the best talent, and build a trusted
-            ecosystem powered by user safety.</span></p>
+          <h2 class="section-head mb-4">Mission, Vision & Goal</h2>
+          
+          <div class="mb-4">
+            <h4 class="accent-blue">Mission</h4>
+            <p class="muted">To create a safe, transparent, and reliable platform where clients can confidently hire skilled professionals without fear of scam.</p>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="accent-blue">Vision</h4>
+            <p class="muted">To become the world's leading platform for secure service hiring across every major city.</p>
+          </div>
+          
+          <div class="mb-4">
+            <h4 class="accent-blue">Goal</h4>
+            <p class="muted">To eliminate fear, connect users to the best talent, and build a trusted ecosystem powered by user safety.</p>
+          </div>
         </div>
         <div class="col-md-5 reveal" data-reveal>
-          <div class="card-dark text-center">
+          <div class="card-light text-center">
             <img
               src="img/mission.avif"
-              alt="mission image" style="width:100%; border-radius:10px; object-fit:cover; margin-bottom:12px" />
+              alt="mission image" class="img-fluid rounded mb-3" />
             <h5>Join early — be heard</h5>
             <p class="muted small">Help shape the platform and influence core features as an early supporter.</p>
           </div>
@@ -562,30 +646,44 @@
   </section>
 
   <!-- WAITLIST BENEFITS -->
-  <section id="waitlist">
+  <section id="waitlist" class="bg-light-section">
     <div class="container container-lg">
+      <div class="text-center mb-5">
+        <h2 class="section-head">Join Our Waitlist Today</h2>
+        <p class="muted">Be among the first to experience Pluggedin and enjoy exclusive benefits.</p>
+      </div>
+      
       <div class="row align-items-center g-4">
         <div class="col-md-6 reveal" data-reveal>
-          <div class="card-dark">
-            <h4 class="section-head">For Professionals</h4>
+          <div class="card-light h-100">
+            <h4 class="section-head accent-blue">For Professionals</h4>
             <ul class="muted">
               <li>Lifetime PRO plan free</li>
               <li>Early access to features</li>
               <li>Priority verification badge</li>
+              <li>Featured in our launch campaign</li>
+              <li>Direct feedback channel to our team</li>
             </ul>
           </div>
         </div>
 
         <div class="col-md-6 reveal" data-reveal>
-          <div class="card-dark">
-            <h4 class="section-head">For Clients</h4>
+          <div class="card-light h-100">
+            <h4 class="section-head accent-green">For Clients</h4>
             <ul class="muted">
-              <li>Reward points</li>
-              <li>Discounts</li>
+              <li>Reward points for early adoption</li>
+              <li>Exclusive discounts on first bookings</li>
               <li>Early access to booking features</li>
+              <li>Priority customer support</li>
+              <li>Invitation to exclusive events</li>
             </ul>
           </div>
         </div>
+      </div>
+      
+      <div class="text-center mt-5">
+        <a class="btn-wait btn-lg" href="https://forms.gle/sample">Join the Waitlist Now</a>
+        <p class="small-muted mt-3">Limited spots available. Join now to secure your benefits.</p>
       </div>
     </div>
   </section>
@@ -633,7 +731,7 @@
   </section>
 
   <!-- TESTIMONIALS -->
-  <section id="testimonials">
+  <section id="testimonials" class="bg-light-section">
     <div class="container container-lg">
       <div class="text-center reveal" data-reveal>
         <h3 class="section-head">What Our Customers Say</h3>
@@ -646,8 +744,8 @@
             <div class="d-flex gap-3 align-items-start">
               <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testi-photo" alt="Michael">
               <div>
-                <p class="muted">“Pluggedin gave me confidence to hire a contractor — payment was secure and the work
-                  was verified with photos.”</p>
+                <p class="muted">"Pluggedin gave me confidence to hire a contractor — payment was secure and the work
+                  was verified with photos."</p>
                 <h6 class="mt-2 mb-0">— Michael A.</h6>
                 <small class="small-muted">Home Renovation • Lagos</small>
               </div>
@@ -660,7 +758,7 @@
             <div class="d-flex gap-3 align-items-start">
               <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testi-photo" alt="Sarah">
               <div>
-                <p class="muted">“Fast dispute resolution and clear proof of work. Finally a platform I trust.”</p>
+                <p class="muted">"Fast dispute resolution and clear proof of work. Finally a platform I trust."</p>
                 <h6 class="mt-2 mb-0">— Sarah K.</h6>
                 <small class="small-muted">Cleaning Services • Abuja</small>
               </div>
@@ -673,15 +771,14 @@
             <div class="d-flex gap-3 align-items-start">
               <img src="https://randomuser.me/api/portraits/men/55.jpg" class="testi-photo" alt="Daniel">
               <div>
-                <p class="muted">“My first booking was smooth — before/after photos made the payout process easy and
-                  fair.”</p>
+                <p class="muted">"My first booking was smooth — before/after photos made the payout process easy and
+                  fair."</p>
                 <h6 class="mt-2 mb-0">— Daniel O.</h6>
                 <small class="small-muted">Plumbing • Port Harcourt</small>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -693,9 +790,9 @@
         style="height:72px; width:120px; margin-bottom:12px; object-fit:contain; border-radius:8px;">
       <div class="mb-2 muted">hello@pluggedin.com &nbsp; • &nbsp; +1 (555) 123-4567</div>
       <div class="mb-3">
-        <a class="me-3" href="#"><i class="bi bi-facebook" style="color:var(--muted)"></i></a>
-        <a class="me-3" href="#"><i class="bi bi-instagram" style="color:var(--muted)"></i></a>
-        <a href="#"><i class="bi bi-twitter" style="color:var(--muted)"></i></a>
+        <a class="me-3" href="#"><i class="bi bi-facebook" style="color:var(--text-muted)"></i></a>
+        <a class="me-3" href="#"><i class="bi bi-instagram" style="color:var(--text-muted)"></i></a>
+        <a href="#"><i class="bi bi-twitter" style="color:var(--text-muted)"></i></a>
       </div>
       <div class="small">© 2025 Pluggedin. All rights reserved.</div>
     </div>
@@ -716,7 +813,15 @@
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', () => { revealOnScroll(); setTimeout(revealOnScroll, 600); });
 
-    // Accessibility: ensure navbar toggler has focus styles (Bootstrap handles most)
+    // Navbar background on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+      } else {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.03)';
+      }
+    });
   </script>
 </body>
 

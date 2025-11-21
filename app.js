@@ -20,6 +20,21 @@ app.get ('/', (req, res)=>{
   res.render('index')
 })
 
+app.get ('/page1', (req, res)=>{
+  res.render('/page1')
+})
+
+app.get ('/page2', (req, res)=>{
+  res.render('page2')
+})
+app.get ('/page3', (req, res)=>{
+  res.render('page3')
+})
+
+app.get ('/page4', (req, res)=>{
+  res.render('page4')
+})
+
 // --- Start the server ---
 const port = 7000;
 app.listen(port, () => {
