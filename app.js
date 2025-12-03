@@ -20,8 +20,8 @@ app.get ('/', (req, res)=>{
   res.render('index')
 })
 
-app.get ('/page1', (req, res)=>{
-  res.render('/page1')
+app.get ('/about-us', (req, res)=>{
+  res.render('about-us')
 })
 
 app.get ('/page2', (req, res)=>{
