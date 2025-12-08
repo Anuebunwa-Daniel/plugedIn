@@ -1,0 +1,194 @@
+
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --success-color: #4bb543;
+            --warning-color: #ff9e00;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .hero-section-p{
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+            color: white;
+            /* margin-bottom: 3rem; */
+            padding: 120px 0 80px;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .empowerment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .pricing-tier {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .pricing-tier:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-header {
+            padding: 2rem 1.5rem;
+            color: white;
+        }
+        
+        .tier-starter {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+        
+        .tier-growth {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+        }
+        
+        .tier-pro {
+            background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+        }
+        
+        .tier-highlight {
+            border: 3px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .tier-highlight:before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        
+        .btn-success:hover {
+            background-color: #3a9c32;
+            border-color: #3a9c32;
+        }
+        
+        .calculator-box {
+            background-color: #f8f9ff;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid #e9ecef;
+        }
+        
+        .testimonial-card {
+            background-color: #f8f9ff;
+            border-left: 5px solid var(--success-color);
+            border-radius: 8px;
+        }
+        
+        .waitlist-form {
+            background: linear-gradient(to right, #1b4332, #2d6a4f);
+            color: white;
+            border-radius: 12px;
+            padding: 3rem;
+        }
+        
+        .step-badge {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        footer-p {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .waitlist-form {
+                padding: 2rem;
+            }
+            
+            .tier-highlight:before {
+                font-size: 0.7rem;
+                padding: 3px 10px;
+            }
+        }

@@ -24,16 +24,17 @@ app.get ('/about-us', (req, res)=>{
   res.render('about-us')
 })
 
-app.get ('/page2', (req, res)=>{
-  res.render('page2')
+app.get ('/find_a_pro', (req, res)=>{
+  res.render('find_a_pro')
 })
-app.get ('/page3', (req, res)=>{
-  res.render('page3')
+app.get ('/professionals', (req, res)=>{
+  res.render('professionals')
 })
 
-app.get ('/page4', (req, res)=>{
-  res.render('page4')
+app.get ('/waitlist', (req, res)=>{
+  res.render('waitlist')
 })
+
 
 // --- Start the server ---
 const port = 7000;
